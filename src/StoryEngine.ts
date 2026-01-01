@@ -5,11 +5,13 @@ class StoryEngine {
   private gameState: GameState;
   private scenes: Scene[];
   private currentSceneId: string;
+  private startSceneId: string;
 
   constructor(initialState: GameState, scenes: Scene[], startSceneId: string) {
     this.gameState = { ...initialState };
     this.scenes = [...scenes];
     this.currentSceneId = startSceneId;
+    this.startSceneId = startSceneId;
   }
 
   // Получить текущую сцену
@@ -91,6 +93,7 @@ class StoryEngine {
   reset(initialState: GameState, startSceneId: string): void {
     this.gameState = { ...initialState };
     this.currentSceneId = startSceneId;
+    this.startSceneId = startSceneId;
   }
 }
 

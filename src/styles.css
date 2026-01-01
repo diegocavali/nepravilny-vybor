@@ -93,6 +93,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
+  position: relative;
 }
 
 .status-item {
@@ -101,6 +102,21 @@ body {
   gap: 8px;
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+.change-story-button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.3s;
+}
+
+.change-story-button:hover {
+  background-color: #dc2626;
 }
 
 .end-screen {

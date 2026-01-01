@@ -35,8 +35,9 @@ export const GameStateProvider: React.FC<GameStateProviderProps> = ({
     setGameState(storyEngine.getGameState());
   };
 
-  const resetGame = () => {
-    storyEngine.reset(initialState, startSceneId);
+  const resetGame = (newStartSceneId?: string) => {
+    const resetStartSceneId = newStartSceneId || startSceneId;
+    storyEngine.reset(initialState, resetStartSceneId);
     setCurrentScene(storyEngine.getCurrentScene());
     setGameState(storyEngine.getGameState());
   };

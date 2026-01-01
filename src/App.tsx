@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GameStateProvider } from './GameStateContext';
 import StoryScreen from './components/StoryScreen';
 import StatusBar from './components/StatusBar';
 import EndScreen from './components/EndScreen';
-import { scenes } from './story';
+import StoryPicker from './components/StoryPicker';
 import { useGameState } from './GameStateContext';
 
 // Компонент для отображения игры
-const Game: React.FC = () => {
+const Game: React.FC<{ story: any }> = ({ story }) => {
   const { currentScene, gameState } = useGameState();
 
   // Проверяем, является ли сцена финальной (без выборов)
@@ -22,8 +22,14 @@ const Game: React.FC = () => {
 };
 
 function App() {
+  const [selectedStory, setSelectedStory] = useState<any>(null);
+
+  if (!selectedStory) {
+    return <StoryPicker onSelectStory={setSelectedStory} />;
+  }
+
   // Начальное состояние игрока
- const initialState = {
+  const initialState = {
     drunk: false,
     injured: false,
     mood: 'calm' as const,
@@ -33,10 +39,10 @@ function App() {
   return (
     <GameStateProvider
       initialState={initialState}
-      scenes={scenes}
-      startSceneId="start"
+      scenes={Object.values(selectedStory.scenes)}
+      startSceneId={selectedStory.startSceneId}
     >
-      <Game />
+      <Game story={selectedStory} />
     </GameStateProvider>
   );
 }
