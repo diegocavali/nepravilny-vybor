@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Builds
+dist/
+build/
+
+# Environment variables
+.env*
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Vite generated files
+!.vite/
+vite.config.ts.bak
+
+# IDE files
+.vscode/
+.idea/
