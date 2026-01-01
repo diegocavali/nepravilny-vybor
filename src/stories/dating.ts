@@ -1,9 +1,9 @@
 import { Scene } from '../types';
 
 export const datingStory = {
-  id: "dating",
-  title: "Свидание",
-  startSceneId: "start",
+  id: 'dating',
+  title: 'Свидание',
+  startSceneId: 'start',
   scenes: {
     'start': {
       id: 'start',
